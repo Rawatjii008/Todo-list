@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title> 
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>hello</h1>
+    <div class="main">
+  <div class="container">
+    <header>
+      <h1>To-Do List</h1>
+      <label class="toggle-switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider"></span>
+      </label>
+    </header>
+    <div class="controls">
+      <input type="text" id="task-title" placeholder="Task Title" required>
+      <textarea id="task-desc" placeholder="Optional Description"></textarea>
+      <input type="date" id="task-date">
+      <button id="add-task"><i class="fas fa-plus"></i> Submit Task</button>
+    </div>
+    <div class="filter"> 
+      <button data-filter="all" class="filter-btn active">Show All Task</button>
+      <button data-filter="completed" class="filter-btn">Completed Task</button>
+      <button data-filter="pending" class="filter-btn">Pending</button>
+    </div>
+    
+  </div>
+  <div class="container1">
+    <h1 class="task-List">Task List</h1>
+    <ul id="task-list"></ul>
+  </div>
+</div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -14,10 +14,21 @@
     const saveDarkMode = () => localStorage.setItem("darkMode", isDarkMode);
   
     const renderTasks = (filter = "all") => {
-      taskList.innerHTML = "";
-      tasks
-        .filter(task => filter === "all" || (filter === "completed" && task.completed) || (filter === "pending" && !task.completed))
-        .forEach((task, index) => {
+      taskList.innerHTML = ""; 
+    
+     
+      const filteredTasks = tasks.filter(task => 
+        filter === "all" || 
+        (filter === "completed" && task.completed) || 
+        (filter === "pending" && !task.completed)
+      );
+    
+      if (filteredTasks.length === 0) {
+        const noDataMessage = document.createElement("li");
+        noDataMessage.textContent = "No data available"; 
+        taskList.appendChild(noDataMessage);
+      } else {
+        filteredTasks.forEach((task, index) => {
           const li = document.createElement("li");
           li.className = task.completed ? "completed" : "";
           li.innerHTML = `
@@ -25,7 +36,6 @@
               <strong>${task.title}</strong> (${task.date || "No due date"})
               <br>
               <small>${task.description}</small>
-
             </span>
             <div>
               <button onclick="toggleComplete(${index})"><i class="fas fa-check"></i></button>
@@ -35,7 +45,9 @@
           `;
           taskList.appendChild(li);
         });
+      }
     };
+    
  
     const addTask = () => {
       const title = taskTitle.value.trim();

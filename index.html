@@ -8,20 +8,22 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+      <div class="toggle-switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <label class="slider" for="dark-mode-toggle">
+          <span class="text-on">Dark Mode: On</span>
+          <span class="text-off">Dark Mode: Off</span>
+        </label>
+      </div>
     <div class="main">
   <div class="container">
     <header>
       <h1>To-Do List</h1>
-      <label class="toggle-switch">
-        <input type="checkbox" id="dark-mode-toggle">
-        <span class="slider"></span>
-      </label>
     </header>
     <div class="controls">
       <input type="text" id="task-title" placeholder="Task Title" required>
       <textarea id="task-desc" placeholder="Optional Description"></textarea>
       <input type="date" id="task-date">
-      <button id="add-task"><i class="fas fa-plus"></i> Submit Task</button>
     </div>
     <div class="filter"> 
       <button data-filter="all" class="filter-btn active">Show All Task</button>
